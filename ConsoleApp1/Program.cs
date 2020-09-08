@@ -12,9 +12,15 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Promotions prom = new Promotions();
-            NameValueCollection prolist = null;
+            NameValueCollection promotionsList = null;
             //Console.WriteLine(prom.repositoryUrls);
-            prolist = prom.list;
+            NameValueCollection unitCost = new NameValueCollection();
+            foreach (var item in ConfigurationManager.AppSettings.AllKeys)
+            {
+                unitCost.Add(item, ConfigurationManager.AppSettings[item]);
+            }
+
+            promotionsList = prom.list;
             Console.ReadLine();
         }
     }
